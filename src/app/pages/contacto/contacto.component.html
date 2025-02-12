@@ -1,0 +1,39 @@
+<div class="container text-center mt-5">
+  <h2 class="text-primary fw-bold">📞 Contáctanos</h2>
+  <p class="lead">¿Tienes dudas? Envíanos un mensaje y te responderemos pronto.</p>
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <img src="assets/images/contacto.jpg" class="img-fluid rounded shadow-lg" alt="Contacto">
+    </div>
+
+    <div class="col-md-6">
+      <form class="p-4 border rounded shadow bg-light">
+        <!-- Mensaje de error -->
+        <div *ngIf="errorMensaje" class="alert alert-danger">{{ errorMensaje }}</div>
+
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" placeholder="Tu nombre">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="Tu email">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Teléfono</label>
+          <input [(ngModel)]="telefono" name="telefono" type="tel" class="form-control" placeholder="Ej: 600123456">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Mensaje</label>
+          <textarea [(ngModel)]="mensaje" name="mensaje" class="form-control" rows="4" placeholder="Escribe tu mensaje"></textarea>
+        </div>
+
+        <button type="button" class="btn btn-success w-100" (click)="enviarMensaje()">📩 Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</div>

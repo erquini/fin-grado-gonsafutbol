@@ -1,0 +1,24 @@
+/* ✅ Asegura que el contenido llene al menos toda la altura de la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* ✅ Hace que el contenido principal crezca y empuje el footer hacia abajo */
+  .app-container {
+    flex: 1;
+  }
+  
+  /* ✅ Fija el footer en la parte inferior si hay poco contenido */
+  footer {
+    background: #212529; /* Color oscuro */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+  }
+  

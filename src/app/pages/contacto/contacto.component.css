@@ -1,0 +1,23 @@
+.container {
+  max-width: 800px;
+}
+
+.bg-light {
+  background-color: #f8f9fa;
+}
+
+.form-control {
+  border-radius: 10px;
+}
+
+.alert-danger {
+  font-weight: bold;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}

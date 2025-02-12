@@ -1,0 +1,35 @@
+<div class="container mt-5">
+    <h2 class="text-center text-primary fw-bold">💳 Información de Pago</h2>
+  
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+        <form class="p-4 border rounded shadow bg-light">
+          <div *ngIf="errores.length > 0" class="alert alert-danger">
+            <ul>
+              <li *ngFor="let error of errores">{{ error }}</li>
+            </ul>
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Nombre Completo</label>
+            <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" placeholder="Tu nombre completo">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Dirección de Envío</label>
+            <input [(ngModel)]="direccion" name="direccion" type="text" class="form-control" placeholder="Tu dirección">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Número de Tarjeta</label>
+            <input [(ngModel)]="tarjeta" name="tarjeta" type="text" class="form-control" placeholder="1234 5678 9012 3456" maxlength="16">
+          </div>
+  
+          <h4 class="text-success">Total a pagar: {{ carritoTotal | currency:'EUR' }}</h4>
+  
+          <button type="button" class="btn btn-success w-100" (click)="procesarPago()">💳 Pagar Ahora</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

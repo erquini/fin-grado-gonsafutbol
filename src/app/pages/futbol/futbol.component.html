@@ -1,0 +1,16 @@
+<div class="container mt-5">
+    <h2 class="text-center text-primary">🏆 Ligas de Fútbol</h2>
+  
+    <div class="row mt-4">
+      <div class="col-md-4" *ngFor="let liga of ligas">
+        <div class="card shadow-lg mb-4">
+          <img [src]="liga.league.logo" class="card-img-top" [alt]="liga.league.name">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ liga.league.name }}</h5>
+            <p class="fw-bold text-success">{{ liga.country.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
