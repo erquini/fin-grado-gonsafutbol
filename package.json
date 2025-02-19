@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:gonsa-futbol": "node dist/gonsa-futbol/server/server.mjs"
+    "serve:ssr:gonsa-futbol": "node dist/gonsa-futbol/server/server.mjs",
+    "compodoc": " npx compodoc -p tsconfig.app.json",
+    "compodoc:serve": "compodoc -s",
+    "compodoc:build": "compodoc -p tsconfig.doc.json",
+    "compodoc:build-and-serve": "compodoc -p tsconfig.doc.json -s"
   },
   "private": true,
   "dependencies": {

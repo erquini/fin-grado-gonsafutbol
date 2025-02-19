@@ -1,24 +1,30 @@
 <div class="container mt-5">
-    <h2 class="text-center text-primary">🔑 Iniciar Sesión</h2>
-  
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-6">
-        <form class="p-4 border rounded shadow bg-light">
-          <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
-  
-          <div class="mb-3">
-            <label class="form-label">Correo Electrónico</label>
-            <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="ejemplo@email.com">
-          </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Contraseña</label>
-            <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="********">
-          </div>
-  
-          <button type="button" class="btn btn-primary w-100" (click)="iniciarSesion()">🔓 Ingresar</button>
-        </form>
-      </div>
+  <!-- Título de la sección de inicio de sesión -->
+  <h2 class="text-center text-primary">🔑 Iniciar Sesión</h2>
+
+  <!-- Contenedor del formulario centrado -->
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+      <!-- Formulario de inicio de sesión -->
+      <form class="p-4 border rounded shadow bg-light">
+        <!-- Mensaje de error si el inicio de sesión falla -->
+        <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+
+        <!-- Campo para el correo electrónico -->
+        <div class="mb-3">
+          <label class="form-label">Correo Electrónico</label>
+          <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="ejemplo@email.com">
+        </div>
+
+        <!-- Campo para la contraseña -->
+        <div class="mb-3">
+          <label class="form-label">Contraseña</label>
+          <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="********">
+        </div>
+
+        <!-- Botón para iniciar sesión -->
+        <button type="button" class="btn btn-primary w-100" (click)="iniciarSesion()">🔓 Ingresar</button>
+      </form>
     </div>
   </div>
-  
+</div>

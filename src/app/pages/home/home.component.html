@@ -1,4 +1,5 @@
 <div class="container mt-5 fade-in">
+  <!-- Banner Principal -->
   <div class="jumbotron text-center text-white p-5 rounded animate-slide banner-container">
     <div class="banner-content">
       <h1 class="fw-bold display-3">⚽ Bienvenido a Gonsa Fútbol ⚽</h1>
@@ -11,39 +12,47 @@
         Con más de una década en el mercado, ofrecemos calidad, autenticidad y la pasión del fútbol en cada camiseta.
         Descubre ediciones limitadas y productos exclusivos. ¡Encuentra la tuya y lleva contigo la historia del fútbol!
       </p>
+      <!-- Botón que redirige a la tienda -->
       <a routerLink="/tienda" class="btn btn-warning btn-lg shadow animate-bounce">🛒 Explorar Tienda</a>
     </div>
   </div>
 
+  <!-- Sección de Productos Populares -->
   <h2 class="text-center mt-5 text-success fade-in">🔥 Camisetas Más Vendidas</h2>
   <div class="row mt-4">
     <div class="col-md-4" *ngFor="let producto of productosPopulares">
+      <!-- Card para cada camiseta -->
       <div class="card shadow animate-fade">
         <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
         <div class="card-body text-center">
           <h5 class="card-title">{{ producto.nombre }}</h5>
           <p class="fw-bold text-danger">{{ producto.precio | currency:'EUR' }}</p>
+          <!-- Enlace para ver detalles del producto -->
           <a [routerLink]="['/producto', producto.id]" class="btn btn-primary animate-pulse">Ver Detalles</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Sección de Opiniones de Clientes -->
   <h2 class="text-center mt-5 text-primary">💬 Opiniones de Nuestros Clientes</h2>
   <div class="row mt-4">
     <div class="col-md-4">
+      <!-- Testimonio de cliente 1 -->
       <div class="testimonial p-4 shadow rounded">
         <p>"Increíble calidad, realmente me siento como en los 90 otra vez!"</p>
         <h5>- Carlos Fernández</h5>
       </div>
     </div>
     <div class="col-md-4">
+      <!-- Testimonio de cliente 2 -->
       <div class="testimonial p-4 shadow rounded">
         <p>"La mejor tienda de camisetas retro, entrega rápida y sin problemas."</p>
         <h5>- Sofía López</h5>
       </div>
-    </div>ç
+    </div>
     <div class="col-md-4">
+      <!-- Testimonio de cliente 3 -->
       <div class="testimonial p-4 shadow rounded">
         <p>"Ya tengo 5 camisetas de aquí, simplemente espectacular."</p>
         <h5>- Miguel Torres</h5>

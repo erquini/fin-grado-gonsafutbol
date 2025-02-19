@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
   <div class="container">
+    <!-- Logo de la tienda -->
     <a class="navbar-brand" routerLink="/home">
       <img src="assets/images/logo.png" alt="Logo" height="40">
     </a>
 
+    <!-- Botón de menú colapsable para móviles -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Contenedor de enlaces -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" routerLink="/home">🏠 Inicio</a></li>
@@ -17,6 +20,7 @@
         <li class="nav-item"><a class="nav-link btn btn-outline-light" routerLink="/carrito">🛍️ Carrito</a></li>
       </ul>
 
+      <!-- Controles de usuario (Login/Logout) -->
       <ul class="navbar-nav ms-3">
         <li *ngIf="usuarioLogueado" class="nav-item d-flex align-items-center">
           <span class="text-light fw-bold me-3">👋 Hola, {{ usuarioLogueado }}</span>

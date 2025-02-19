@@ -1,38 +1,51 @@
 <div class="container mt-5 fade-in">
+  <!-- Título principal de la colección -->
   <h1 class="text-center text-primary fw-bold animate-slide">🛒 Nuestra Colección Retro</h1>
 
+  <!-- Sección de filtros -->
   <div class="row mt-4 p-3 bg-light rounded shadow">
     <h5 class="text-center text-success fw-bold">🎯 Filtrar Productos</h5>
 
+    <!-- Filtro por equipo -->
     <div class="col-md-4">
       <label class="fw-bold">⚽ Buscar por Equipo</label>
       <input [(ngModel)]="filtroEquipo" (input)="aplicarFiltros()" class="form-control" placeholder="Ejemplo: Barcelona">
     </div>
 
+    <!-- Filtro por temporada -->
     <div class="col-md-4">
       <label class="fw-bold">📅 Temporada</label>
       <input [(ngModel)]="filtroTemporada" (input)="aplicarFiltros()" class="form-control" placeholder="Ejemplo: 2006/2007">
     </div>
 
+    <!-- Filtro por precio máximo -->
     <div class="col-md-4">
       <label class="fw-bold">💰 Precio Máximo: {{ filtroPrecio | currency:'EUR' }}</label>
       <input [(ngModel)]="filtroPrecio" (input)="aplicarFiltros()" type="range" min="10" max="200" step="10" class="form-range">
     </div>
   </div>
+
+  <!-- Sección para mostrar los productos filtrados -->
   <div class="row mt-4">
     <div *ngFor="let producto of productosFiltrados" class="col-md-4">
       <div class="card shadow animate-fade">
+        <!-- Imagen del producto -->
         <img [src]="producto.imagen" class="card-img-top" [alt]="producto.nombre">
         <div class="card-body text-center">
+          <!-- Nombre del producto -->
           <h5 class="card-title">{{ producto.nombre }}</h5>
+          <!-- Equipo y temporada -->
           <p class="text-muted">{{ producto.equipo }} - {{ producto.temporada }}</p>
+          <!-- Precio del producto -->
           <p class="fw-bold text-success">{{ producto.precio | currency:'EUR' }}</p>
+          <!-- Enlace para ver más detalles -->
           <a [routerLink]="['/producto', producto.id]" class="btn btn-primary animate-pulse">Ver Detalles</a>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Mensaje cuando no hay productos que coincidan con los filtros -->
   <div *ngIf="productosFiltrados.length === 0" class="text-center mt-4">
     <h4 class="text-danger">❌ No se encontraron camisetas con esos filtros.</h4>
   </div>

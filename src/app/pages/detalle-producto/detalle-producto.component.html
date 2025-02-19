@@ -1,25 +1,25 @@
 <div class="container mt-4">
-    <div class="row">
-      <div class="col-md-6">
-        <img [src]="producto?.imagen" class="img-fluid shadow-lg rounded" [alt]="producto?.nombre">
-      </div>
-  
-      
-      <div class="col-md-6">
-        <h2 class="text-primary fw-bold">{{ producto?.nombre }}</h2>
-        <p class="fs-5 text-muted">{{ producto?.equipo }} - {{ producto?.temporada }}</p>
-        <p class="text-success fs-3 fw-bold">{{ producto?.precio | currency:'EUR' }}</p>
-        <p>{{ producto?.descripcion }}</p>
-        
-    
-        <button class="btn btn-warning btn-lg shadow" (click)="agregarAlCarrito()">
-          🛒 Añadir al Carrito
-        </button>
-  
-        <button class="btn btn-secondary btn-lg ms-3 shadow" (click)="volver()">
-          🔙 Volver a la Tienda
-        </button>
-      </div>
+  <div class="row">
+    <!-- Imagen del producto -->
+    <div class="col-md-6">
+      <img [src]="producto?.imagen" class="img-fluid shadow-lg rounded" [alt]="producto?.nombre">
+    </div>
+
+    <!-- Detalles del producto -->
+    <div class="col-md-6">
+      <h2 class="text-primary fw-bold">{{ producto?.nombre }}</h2>
+      <p class="fs-5 text-muted">{{ producto?.equipo }} - {{ producto?.temporada }}</p>
+      <p class="text-success fs-3 fw-bold">{{ producto?.precio | currency:'EUR' }}</p>
+      <p>{{ producto?.descripcion }}</p>
+
+      <!-- Botones -->
+      <button class="btn btn-warning btn-lg shadow" (click)="agregarAlCarrito()">
+        🛒 Añadir al Carrito
+      </button>
+
+      <button class="btn btn-secondary btn-lg ms-3 shadow" (click)="volver()">
+        🔙 Volver a la Tienda
+      </button>
     </div>
   </div>
-  
+</div>

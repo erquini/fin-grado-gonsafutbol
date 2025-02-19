@@ -2,7 +2,9 @@
   <h2 class="text-primary fw-bold">🛍️ Tu Carrito de Compras</h2>
 
   <div *ngIf="carrito.length > 0; else carritoVacio">
-    <!-- Tabla de productos en el carrito -->
+    <!-- 
+      Tabla que muestra los productos en el carrito
+    -->
     <table class="table table-hover mt-4 shadow-lg">
       <thead class="table-dark">
         <tr>
@@ -13,16 +15,20 @@
         </tr>
       </thead>
       <tbody>
+        <!-- Iteración sobre los productos en el carrito -->
         <tr *ngFor="let producto of carrito; let i = index">
           <td><img [src]="producto.imagen" width="80" class="rounded shadow"></td>
           <td>{{ producto.nombre }}</td>
           <td class="text-success fw-bold">{{ producto.precio | currency:'EUR' }}</td>
+          <!-- Botón para eliminar un producto del carrito -->
           <td><button class="btn btn-danger" (click)="eliminarProducto(i)">🗑️</button></td>
         </tr>
       </tbody>
     </table>
 
-    <!-- Resumen del pedido -->
+    <!-- 
+      Sección de resumen del pedido 
+    -->
     <div class="card shadow-lg p-4 mt-4 bg-light">
       <h4 class="fw-bold">🛒 Resumen de Compra</h4>
       <p class="lead">Total de productos: <strong>{{ carrito.length }}</strong></p>
@@ -36,7 +42,9 @@
     </div>
   </div>
 
-  <!-- Mensaje cuando el carrito está vacío -->
+  <!-- 
+    @ng-template carritoVacio - Muestra un mensaje de carrito vacío con un botón para ir a la tienda
+  -->
   <ng-template #carritoVacio>
     <div class="alert alert-warning mt-4 shadow-lg">
       <h4>😢 Tu carrito está vacío</h4>
