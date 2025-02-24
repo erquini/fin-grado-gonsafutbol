@@ -6,10 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-// ✅ Importamos el componente principal
 import { AppComponent } from './app.component';
 
-// ✅ Importamos las páginas con standalone: false
 import { HomeComponent } from './pages/home/home.component';
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { DetalleProductoComponent } from './pages/detalle-producto/detalle-producto.component';
@@ -18,13 +16,10 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { PagoComponent } from './pages/pago/pago.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
-import { FutbolComponent } from './pages/futbol/futbol.component'; // ✅ Importar aquí
-
-// ✅ Importamos los componentes de navbar y footer
+import { FutbolComponent } from './pages/futbol/futbol.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-// ✅ Importamos los servicios
 import { FutbolService } from './services/futbol.service';
 
 @NgModule({
@@ -40,7 +35,7 @@ import { FutbolService } from './services/futbol.service';
     PagoComponent,
     RegistroComponent,
     LoginComponent,
-    FutbolComponent // ✅ Agregar correctamente aquí
+    FutbolComponent 
   ],
   imports: [
     BrowserModule,
@@ -48,9 +43,9 @@ import { FutbolService } from './services/futbol.service';
     RouterModule,
     CommonModule,
     FormsModule,
-    HttpClientModule, // ✅ Importante para llamadas HTTP
+    HttpClientModule,
   ],
-  providers: [FutbolService], // ✅ Agregamos el servicio aquí
+  providers: [FutbolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

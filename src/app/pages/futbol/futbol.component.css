@@ -1,124 +1,75 @@
 .ligas-container {
-    padding: 50px 15px;
-    background-color: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  .ligas-title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #343a40;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-  
+  padding: 50px 15px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.ligas-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #343a40;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.liga-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  text-align: center;
+}
+
+.liga-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.liga-logo {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 15px;
+}
+
+.liga-info {
+  padding: 10px;
+}
+
+.liga-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.liga-country {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
   .liga-card {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px;
   }
-  
-  .liga-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
+
   .liga-logo {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    border-bottom: 1px solid #e1e1e1;
+    max-height: 150px;
   }
 
   .liga-info {
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
   }
-  
-  .liga-name {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff;
-  }
-  
-  .liga-country {
-    font-size: 1rem;
-    color: #6c757d;
-    margin-top: 10px;
-  }
-  
-  .liga-statistics {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-  }
-  
-  .stat {
-    font-size: 1rem;
-    color: #343a40;
-    font-weight: 600;
-  }
-  
-  .stat-title {
-    font-size: 0.9rem;
-    color: #6c757d;
-  }
-  
-
-  .view-more-button {
-    display: block;
-    background-color: #28a745;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 20px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .view-more-button:hover {
-    background-color: #218838;
-  }
-  
-  .fade-in {
-    opacity: 0;
-    animation: fadeIn 1.2s ease-in-out forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .liga-card {
-      flex-direction: column;
-      margin-bottom: 20px;
-    }
-  
-    .liga-info {
-      padding: 15px;
-    }
-  
-    .liga-logo {
-      max-height: 150px;
-    }
-  }
-  
+}
