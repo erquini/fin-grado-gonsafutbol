@@ -36,7 +36,7 @@ export class ProductoService {
     {
       id: 4,
       nombre: 'Camiseta de Messi 2010',
-      equipo: 'Argentina',
+      equipo: 'Barcelona',
       temporada: '2010',
       imagen: 'assets/images/barcelona.jpg',
       precio: 74.99,
@@ -100,7 +100,7 @@ export class ProductoService {
     {
       id: 11,
       nombre: 'Camiseta de Thierry Henry 2004',
-      equipo: 'Arsenal',
+      equipo: 'Francia',
       temporada: '2004',
       imagen: 'assets/images/henry.jpg',
       precio: 89.99,
@@ -118,7 +118,7 @@ export class ProductoService {
     {
       id: 13,
       nombre: 'Camiseta de Messi 2014',
-      equipo: 'Argentina',
+      equipo: 'Barcelona',
       temporada: '2014',
       imagen: 'assets/images/messi-2014.jpg',
       precio: 74.99,
@@ -127,7 +127,7 @@ export class ProductoService {
     {
       id: 14,
       nombre: 'Camiseta de Ronaldo 2016',
-      equipo: 'Portugal',
+      equipo: 'Real Madrid',
       temporada: '2016',
       imagen: 'assets/images/cris.jpg',
       precio: 89.99,
