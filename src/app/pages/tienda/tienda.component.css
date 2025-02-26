@@ -1,3 +1,4 @@
+/* Animación de aparición */
 .fade-in {
   opacity: 0;
   animation: fadeIn 1.2s ease-in-out forwards;
@@ -14,14 +15,55 @@
   }
 }
 
-.card {
+/* Contenedor del producto */
+.producto-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.producto-card:hover {
+  transform: scale(1.03);
 }
 
+/* Contenedor de la imagen para asegurar proporción */
+.producto-img-container {
+  width: 100%;
+  height: 250px; /* Altura uniforme para todas las imágenes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #f8f9fa;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* Imagen del producto */
+.producto-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantiene la imagen sin cortes ni estiramientos */
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+/* Botón de "Ver Detalles" siempre alineado abajo */
+.btn {
+  width: 100%;
+  margin-top: auto;
+}
+
+/* Estilos para los filtros */
 .bg-light {
   border-radius: 10px;
   padding: 15px;

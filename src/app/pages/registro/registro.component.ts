@@ -5,7 +5,7 @@ import { UsuarioService } from '../../services/usuario.service';  // Importamos 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',  // Ruta del template HTML
-  standalone: false,  // Esta clase no es un componente autónomo
+  standalone: false, 
   styleUrls: ['./registro.component.css']  // Estilos del componente
 })
 export class RegistroComponent {
