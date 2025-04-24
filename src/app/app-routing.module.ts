@@ -11,8 +11,11 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ContactoConfirmacionComponent } from './pages/contacto-confirmacion/contacto-confirmacion.component';
 import { FutbolComponent } from './pages/futbol/futbol.component';
+import { PersonalizacionComponent } from './pages/personalizacion/personalizacion.component';
+
 
 const routes: Routes = [
+  { path: 'personalizar', component: PersonalizacionComponent },
   { path: 'confirmacion', component: ConfirmacionComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, 
   { path: 'home', component: HomeComponent },
@@ -24,6 +27,7 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
   { path: 'contacto-confirmacion', component: ContactoConfirmacionComponent },
+  { path: 'personalizacion', component: PersonalizacionComponent },
   { path: 'futbol', component: FutbolComponent }
 ];
 

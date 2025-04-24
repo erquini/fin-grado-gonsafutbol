@@ -1,31 +1,21 @@
-/**
- * @component ContactoComponent
- * @description Formulario de contacto que permite a los usuarios enviar mensajes.
- */
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
+  styleUrls: ['./contacto.component.css'],
   standalone: false,
-  styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent {
-  /** Nombre del usuario */
   nombre: string = '';
-  /** Email del usuario */
   email: string = '';
-  /** Teléfono del usuario */
   telefono: string = '';
-  /** Mensaje del usuario */
+  asunto: string = '';
   mensaje: string = '';
-  /** Mensaje de error en la validación */
   errorMensaje: string = '';
+  enviado: boolean = false;
 
-  constructor(private router: Router) {}
-
-  /** Valida y envía el mensaje del formulario */
   enviarMensaje() {
     if (!this.nombre || !this.email || !this.telefono || !this.mensaje) {
       this.errorMensaje = '⚠️ Todos los campos son obligatorios.';
@@ -42,18 +32,50 @@ export class ContactoComponent {
       return;
     }
 
-    this.router.navigate(['/contacto-confirmacion']);
+    const templateParams = {
+      from_name: this.nombre,
+      from_email: this.email,
+      telefono: this.telefono,
+      asunto: this.asunto,
+      message: this.mensaje,
+    };
+
+    emailjs
+      .send(
+        'service_302z81o',         // Service ID
+        'template_havxonk',        // Template ID
+        templateParams,
+        'pWvKxZdYaipY6srTM'        // Public Key
+      )
+      .then(
+        (response) => {
+          console.log('✅ CORREO ENVIADO', response);
+          this.enviado = true;
+          this.errorMensaje = '';
+          this.limpiarFormulario();
+        },
+        (error) => {
+          console.error('❌ ERROR al enviar', error);
+          this.errorMensaje = 'Hubo un error al enviar el mensaje. Intenta de nuevo más tarde.';
+        }
+      );
   }
 
-  /** Valida si el email tiene un formato correcto */
+  limpiarFormulario() {
+    this.nombre = '';
+    this.email = '';
+    this.telefono = '';
+    this.asunto = '';
+    this.mensaje = '';
+  }
+
   validarEmail(email: string): boolean {
-    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const re = /^[\w.-]+@[a-zA-Z\d.-]+\.[a-zA-Z]{2,}$/;
     return re.test(email);
   }
 
-  /** Valida si el teléfono tiene un formato correcto */
   validarTelefono(telefono: string): boolean {
-    const re = /^[0-9]{9,15}$/; 
+    const re = /^[0-9]{9,15}$/;
     return re.test(telefono);
   }
 }

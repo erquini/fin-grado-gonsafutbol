@@ -1,35 +1,85 @@
 import { Component } from '@angular/core';
-import { ProductoService } from '../../services/producto.service';  // Servicio para obtener productos
-import { Producto } from '../../interfaces/producto';  // Interfaz para tipar los productos
+import { ProductoService } from '../../services/producto.service';
+import { Producto } from '../../interfaces/producto';
 
 @Component({
-  selector: 'app-tienda',  // Selector para usar el componente en la vista
-  templateUrl: './tienda.component.html',  // Ruta del archivo HTML para el componente
-  standalone: false,  // Indica que el componente no es independiente (se utiliza en otro módulo)
-  styleUrls: ['./tienda.component.css']  // Ruta del archivo CSS para el componente
+  selector: 'app-tienda',
+  templateUrl: './tienda.component.html',
+  styleUrls: ['./tienda.component.css'],
+  standalone: false
 })
 export class TiendaComponent {
-  productos: Producto[] = [];  // Array para almacenar todos los productos
-  productosFiltrados: Producto[] = [];  // Array para almacenar los productos filtrados
+  // Productos
+  productos: Producto[] = [];
+  productosFiltrados: Producto[] = [];
 
-  filtroEquipo: string = '';  // Filtro de equipo
-  filtroTemporada: string = '';  // Filtro de temporada
-  filtroPrecio: number = 100;  // Filtro de precio máximo (valor inicial de 100)
+  // Filtros
+  filtroEquipo: string = '';
+  filtroTemporada: string = '';
+  filtroPrecio: number = 200;
 
-  constructor(private productoService: ProductoService) {}  // Inyección del servicio ProductoService
+  // Orden actual
+  orden: string = 'precioAsc';
+
+  // Opiniones para mostrar (para HTML extendido)
+  opiniones = [
+    { texto: 'La calidad es espectacular. Volveré a comprar.', autor: 'Carlos García' },
+    { texto: 'Excelente servicio y envío rápido.', autor: 'Lucía Fernández' },
+    { texto: 'La personalización quedó increíble. ¡Gracias!', autor: 'Pedro Ramírez' }
+  ];
+
+  // Galería
+  imagenesGaleria = [
+    'assets/images/galeria1.jpg',
+    'assets/images/galeria2.jpg',
+    'assets/images/galeria3.jpg',
+    'assets/images/galeria4.jpg',
+    'assets/images/galeria5.jpg',
+    'assets/images/galeria6.jpg',
+    'assets/images/galeria7.jpg',
+    'assets/images/galeria8.jpg'
+  ];
+
+  constructor(private productoService: ProductoService) {}
 
   ngOnInit() {
-    // Carga los productos iniciales al componente
-    this.productos = this.productoService.getProductos();  // Obtiene todos los productos desde el servicio
-    this.productosFiltrados = this.productos;  // Inicializa los productos filtrados con todos los productos
+    // Obtener productos del servicio
+    this.productos = this.productoService.getProductos();
+
+    // Aplicar filtros por defecto (todos)
+    this.aplicarFiltros();
   }
 
-  aplicarFiltros() {
-    // Aplica los filtros según los valores seleccionados por el usuario
+  aplicarFiltros(): void {
+    // Filtros combinados
     this.productosFiltrados = this.productos.filter(producto =>
-      producto.equipo.toLowerCase().includes(this.filtroEquipo.toLowerCase()) &&  // Filtra por equipo
-      producto.temporada.includes(this.filtroTemporada) &&  // Filtra por temporada
-      producto.precio <= this.filtroPrecio  // Filtra por precio
+      producto.equipo.toLowerCase().includes(this.filtroEquipo.toLowerCase()) &&
+      producto.temporada.toLowerCase().includes(this.filtroTemporada.toLowerCase()) &&
+      producto.precio <= this.filtroPrecio
     );
+
+    // Ordenar después de filtrar
+    this.ordenarProductos();
+  }
+
+  resetFiltros(): void {
+    this.filtroEquipo = '';
+    this.filtroTemporada = '';
+    this.filtroPrecio = 200;
+    this.aplicarFiltros();
+  }
+
+  ordenarProductos(): void {
+    switch (this.orden) {
+      case 'precioAsc':
+        this.productosFiltrados.sort((a, b) => a.precio - b.precio);
+        break;
+      case 'precioDesc':
+        this.productosFiltrados.sort((a, b) => b.precio - a.precio);
+        break;
+      case 'nombre':
+        this.productosFiltrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        break;
+    }
   }
 }

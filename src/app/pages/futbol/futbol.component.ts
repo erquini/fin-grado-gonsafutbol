@@ -8,8 +8,9 @@ import { FutbolService } from '../../services/futbol.service';  // Importamos el
   standalone: false
 })
 export class FutbolComponent implements OnInit {
-  ligas: any[] = [];  // Arreglo para almacenar las ligas obtenidas
+  ligas: any[] = []; 
   equipo: any;  // Variable para almacenar la información del equipo
+  
 
   constructor(private futbolService: FutbolService) {}  // Inyectamos el servicio del fútbol
 

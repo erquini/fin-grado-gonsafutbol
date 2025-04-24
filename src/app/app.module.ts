@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 
@@ -19,6 +22,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { FutbolComponent } from './pages/futbol/futbol.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PersonalizacionComponent } from './pages/personalizacion/personalizacion.component';
+
 
 import { FutbolService } from './services/futbol.service';
 
@@ -35,7 +40,8 @@ import { FutbolService } from './services/futbol.service';
     PagoComponent,
     RegistroComponent,
     LoginComponent,
-    FutbolComponent 
+    FutbolComponent,
+    PersonalizacionComponent 
   ],
   imports: [
     BrowserModule,
@@ -43,6 +49,9 @@ import { FutbolService } from './services/futbol.service';
     RouterModule,
     CommonModule,
     FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
     HttpClientModule,
   ],
   providers: [FutbolService],

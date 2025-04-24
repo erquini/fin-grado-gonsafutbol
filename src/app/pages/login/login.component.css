@@ -1,0 +1,16 @@
+.footer {
+    background-color: #f8f9fa; /* o blanco puro si lo prefieres */
+    padding: 20px 10px;
+  }
+  
+  .footer-text {
+    color: #ffffff; /* texto más oscuro para buena visibilidad */
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  .footer hr {
+    border-color: #dee2e6;
+    margin-bottom: 1rem;
+  }
+  

@@ -1,53 +1,92 @@
-/**
- * @component CarritoComponent
- * @description Maneja el carrito de compras, permitiendo eliminar productos, vaciarlo y proceder al pago.
- */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CarritoService } from '../../services/carrito.service';
 import { Producto } from '../../interfaces/producto';
-import { Router } from '@angular/router';
+
+interface Recomendacion {
+  nombre: string;
+  descripcion: string;
+  imagen: string;
+  precio: number;
+}
+
+interface Testimonio {
+  nombre: string;
+  mensaje: string;
+  fecha: string;
+}
 
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
-  standalone: false,
-  styleUrls: ['./carrito.component.css']
+  styleUrls: ['./carrito.component.css'],
+  standalone: false
 })
-export class CarritoComponent {
-  /** Lista de productos en el carrito */
+export class CarritoComponent implements OnInit {
   carrito: Producto[] = [];
-  /** Total a pagar */
   total: number = 0;
+
+  productosRecomendados = [
+    {
+      nombre: 'Camiseta Edición Limitada',
+      precio: 39.99,
+      imagen: 'assets/images/recomendacion1.jpg'
+    },
+    {
+      nombre: 'Camiseta Retro 90s',
+      precio: 29.99,
+      imagen: 'assets/images/recomendacion2.jpg'
+    },
+    {
+      nombre: 'Pack 3 Camisetas Personalizadas',
+      precio: 59.99,
+      imagen: 'assets/images/recomendacion3.jpg'
+    }
+  ];
+  
+
+  testimonios: Testimonio[] = [
+    {
+      nombre: 'Carlos M.',
+      mensaje: 'La calidad de la camiseta es excelente y llegó en solo 2 días.',
+      fecha: '10 de abril de 2025'
+    },
+    {
+      nombre: 'Lucía G.',
+      mensaje: 'Me encantó poder personalizar todo, ¡hasta el parche!',
+      fecha: '3 de abril de 2025'
+    },
+    {
+      nombre: 'Pedro R.',
+      mensaje: 'Buen servicio y muy atentos en el soporte postventa.',
+      fecha: '28 de marzo de 2025'
+    }
+  ];
 
   constructor(private carritoService: CarritoService, private router: Router) {}
 
-  /** Obtiene los productos del carrito y calcula el total */
-  ngOnInit() {
+  ngOnInit(): void {
     this.carrito = this.carritoService.getCarrito();
     this.calcularTotal();
   }
 
-  /** Calcula el total del carrito */
-  calcularTotal() {
-    this.total = this.carrito.reduce((sum, producto) => sum + producto.precio, 0);
+  calcularTotal(): void {
+    this.total = this.carrito.reduce((acc, producto) => acc + producto.precio, 0);
   }
 
-  /** Elimina un producto del carrito */
-  eliminarProducto(index: number) {
+  eliminarProducto(index: number): void {
     this.carritoService.eliminarProducto(index);
     this.carrito = this.carritoService.getCarrito();
     this.calcularTotal();
   }
 
-  /** Vacía completamente el carrito */
-  vaciarCarrito() {
+  vaciarCarrito(): void {
     this.carritoService.vaciarCarrito();
     this.carrito = [];
     this.total = 0;
   }
 
-  /** Redirige a la página de pago si hay productos en el carrito */
-  procederAlPago() {
+  procederAlPago(): void {
     if (this.carrito.length === 0) {
       alert('⚠️ Tu carrito está vacío. Agrega productos antes de proceder al pago.');
       return;
@@ -55,8 +94,7 @@ export class CarritoComponent {
     this.router.navigate(['/pago']);
   }
 
-  /** Redirige a la tienda para seguir comprando */
-  seguirComprando() {
+  seguirComprando(): void {
     this.router.navigate(['/tienda']);
   }
 }

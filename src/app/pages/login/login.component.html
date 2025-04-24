@@ -1,30 +1,72 @@
-<div class="container mt-5">
-  <!-- Título de la sección de inicio de sesión -->
-  <h2 class="text-center text-primary">🔑 Iniciar Sesión</h2>
+<div class="container mt-5 login-container">
+  <h2 class="text-center text-primary mb-4">🔑 Iniciar Sesión</h2>
 
-  <!-- Contenedor del formulario centrado -->
-  <div class="row d-flex justify-content-center">
+  <!-- Formulario -->
+  <div class="row justify-content-center">
     <div class="col-md-6">
-      <!-- Formulario de inicio de sesión -->
       <form class="p-4 border rounded shadow bg-light">
-        <!-- Mensaje de error si el inicio de sesión falla -->
-        <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+        <div *ngIf="mensajeError" class="alert alert-danger text-center">{{ mensajeError }}</div>
 
-        <!-- Campo para el correo electrónico -->
         <div class="mb-3">
-          <label class="form-label">Correo Electrónico</label>
-          <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="ejemplo@email.com">
+          <label for="email" class="form-label fw-bold">📧 Correo Electrónico</label>
+          <input [(ngModel)]="email" name="email" id="email" type="email" class="form-control" placeholder="ejemplo@email.com" required>
         </div>
 
-        <!-- Campo para la contraseña -->
         <div class="mb-3">
-          <label class="form-label">Contraseña</label>
-          <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="********">
+          <label for="password" class="form-label fw-bold">🔒 Contraseña</label>
+          <input [(ngModel)]="password" name="password" id="password" type="password" class="form-control" placeholder="********" required>
         </div>
 
-        <!-- Botón para iniciar sesión -->
-        <button type="button" class="btn btn-primary w-100" (click)="iniciarSesion()">🔓 Ingresar</button>
+        <button type="button" class="btn btn-primary w-100 fw-bold" (click)="iniciarSesion()">🔓 Ingresar</button>
       </form>
     </div>
   </div>
+
+  <!-- Beneficios -->
+  <section class="mt-5 text-center">
+    <h4 class="text-dark fw-bold mb-4">🎯 ¿Por qué iniciar sesión?</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <i class="bi bi-bookmark-check fs-1 text-success"></i>
+        <p class="fw-bold mt-2">Guardar Favoritos</p>
+        <p>Accede a tus camisetas y pedidos favoritos en cualquier momento.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-person-lines-fill fs-1 text-info"></i>
+        <p class="fw-bold mt-2">Gestión de Perfil</p>
+        <p>Consulta y modifica tu información personal desde tu cuenta.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-currency-euro fs-1 text-warning"></i>
+        <p class="fw-bold mt-2">Ofertas Exclusivas</p>
+        <p>Desbloquea cupones y descuentos solo disponibles para miembros.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonios -->
+  <section class="mt-5 bg-light p-4 rounded shadow testimonios">
+    <h3 class="text-dark text-center mb-4">💬 Opiniones de nuestros usuarios</h3>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
+          <p class="testimonial-text">“Me encanta la facilidad para revisar mis pedidos pasados.”</p>
+          <footer class="testimonio-nombre">— Marcos R. de Valladolid</footer>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
+          <p class="testimonial-text">“Iniciar sesión me ahorra mucho tiempo al comprar.”</p>
+          <footer class="testimonio-nombre">— Paula T. de Málaga</footer>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
+          <p class="testimonial-text">“¡Ya no pierdo mis camisetas favoritas!”</p>
+          <footer class="testimonio-nombre">— Sergio H. de Alicante</footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
