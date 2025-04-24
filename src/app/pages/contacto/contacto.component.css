@@ -1,5 +1,7 @@
-.contacto-container {
-  padding: 20px;
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .img-banner {

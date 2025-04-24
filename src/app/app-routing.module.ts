@@ -12,27 +12,40 @@ import { LoginComponent } from './pages/login/login.component';
 import { ContactoConfirmacionComponent } from './pages/contacto-confirmacion/contacto-confirmacion.component';
 import { FutbolComponent } from './pages/futbol/futbol.component';
 import { PersonalizacionComponent } from './pages/personalizacion/personalizacion.component';
+import { VideosComponent } from './pages/videos/videos.component';
+import { FutbolistasHistoricosComponent } from './pages/futbolistas-historicos/futbolistas-historicos.component';
+import { FutbolistaDetalleComponent } from './pages/futbolista-detalle/futbolista-detalle.component';
+import { DetalleVideoComponent } from './pages/detalle-video/detalle-video.component';
+
+
+
+
 
 
 const routes: Routes = [
-  { path: 'personalizar', component: PersonalizacionComponent },
-  { path: 'confirmacion', component: ConfirmacionComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'tienda', component: TiendaComponent },
+  { path: 'producto/:id', component: DetalleProductoComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'contacto-confirmacion', component: ContactoConfirmacionComponent },
   { path: 'carrito', component: CarritoComponent },
   { path: 'pago', component: PagoComponent },
-  { path: 'producto/:id', component: DetalleProductoComponent },
+  { path: 'confirmacion', component: ConfirmacionComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'contacto-confirmacion', component: ContactoConfirmacionComponent },
+  { path: 'personalizar', component: PersonalizacionComponent },
   { path: 'personalizacion', component: PersonalizacionComponent },
-  { path: 'futbol', component: FutbolComponent }
+  { path: 'futbol', component: FutbolComponent },
+  { path: 'videos', component: VideosComponent },
+  { path: 'futbolistas', component: FutbolistasHistoricosComponent },
+  { path: 'futbolista/:id', component: FutbolistaDetalleComponent },
+  { path: 'videos/:id', component: DetalleVideoComponent },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
