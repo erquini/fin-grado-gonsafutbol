@@ -1,31 +1,42 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { VideosService, Video } from '../../services/videos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',
-  standalone: false,
-  styleUrls: ['./videos.component.css']
+  styleUrls: ['./videos.component.css'],
+  standalone: false
 })
-export class VideosComponent {
-  leyendas = [
-    {
-      nombre: 'Pelé',
-      imagen: 'assets/images/pele.jpg',
-      video: 'https://www.youtube.com/embed/uHgDlcGfQ-U'
-    },
-    {
-      nombre: 'Maradona',
-      imagen: 'assets/images/maradona.jpg',
-      video: 'https://www.youtube.com/embed/V_JjV_mH6pM'
-    },
-    {
-      nombre: 'Zidane',
-      imagen: 'assets/images/zidane.jpg',
-      video: 'https://www.youtube.com/embed/4nGrL1TZy9M'
-    }
-  ];
 
-  verVideo(url: string) {
-    window.open(url, '_blank');
+export class VideosComponent implements OnInit {
+  gruposDeVideos: Video[][] = [];
+
+  constructor(private videosService: VideosService, private router: Router) {}
+
+  ngOnInit(): void {
+    const videos = this.videosService.getVideos();
+    const videosUnicos = this.eliminarDuplicados(videos);
+    const tamanoGrupo = 5;
+
+    for (let i = 0; i < videosUnicos.length; i += tamanoGrupo) {
+      this.gruposDeVideos.push(videosUnicos.slice(i, i + tamanoGrupo));
+    }
+  }
+
+  verDetalle(id: number): void {
+    this.router.navigate(['/videos', id]);
+  }
+
+  private eliminarDuplicados(videos: Video[]): Video[] {
+    const vistos = new Set();
+    return videos.filter(video => {
+      if (vistos.has(video.id)) {
+        return false;
+      } else {
+        vistos.add(video.id);
+        return true;
+      }
+    });
   }
 }

@@ -1,15 +1,17 @@
-<div class="container mt-5">
-    <h2 class="text-center text-primary mb-4">🎥 Sección de Videos de Leyendas</h2>
-    <div class="row text-center">
-      <div class="col-md-4 mb-4" *ngFor="let jugador of leyendas">
-        <div class="card h-100 shadow">
-          <img [src]="jugador.imagen" class="card-img-top" [alt]="jugador.nombre">
-          <div class="card-body">
-            <h5 class="card-title">{{ jugador.nombre }}</h5>
-            <button class="btn btn-outline-primary w-100" (click)="verVideo(jugador.video)">▶️ Ver carrera</button>
+<div class="videos-galeria">
+  <h1 class="galeria-titulo">🎬 Galería de Videos</h1>
+
+  <div *ngFor="let grupo of gruposDeVideos" class="grupo-carrusel">
+    <div class="carrusel">
+      <div class="tarjeta-video" *ngFor="let video of grupo" (click)="verDetalle(video.id)">
+        <img [src]="video.imagen" [alt]="video.titulo" class="imagen-video" />
+        <div class="tarjeta-overlay">
+          <div class="info">
+            <h3>{{ video.titulo }}</h3>
+            <p>{{ video.descripcion }}</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

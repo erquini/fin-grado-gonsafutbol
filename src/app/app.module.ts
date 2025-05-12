@@ -27,10 +27,14 @@ import { FutbolComponent } from './pages/futbol/futbol.component';
 import { PersonalizacionComponent } from './pages/personalizacion/personalizacion.component';
 import { FutbolistasHistoricosComponent } from './pages/futbolistas-historicos/futbolistas-historicos.component';
 import { FutbolistaDetalleComponent } from './pages/futbolista-detalle/futbolista-detalle.component';
-
+import { VideosComponent } from './pages/videos/videos.component';
+import { DetalleVideoComponent } from './pages/detalle-video/detalle-video.component';
+import { CalendarioEventosComponent } from './pages/calendario-eventos/calendario-eventos.component';
 
 // Servicios
 import { FutbolistasService } from './services/futbolistas.service';
+import { VideosService } from './services/videos.service';
+import { EventosService } from './services/eventos.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,10 @@ import { FutbolistasService } from './services/futbolistas.service';
     FutbolComponent,
     PersonalizacionComponent,
     FutbolistasHistoricosComponent,
-    FutbolistaDetalleComponent
+    FutbolistaDetalleComponent,
+    VideosComponent,
+    DetalleVideoComponent,
+    CalendarioEventosComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +68,7 @@ import { FutbolistasService } from './services/futbolistas.service';
     MatButtonModule,
     MatIconModule
   ],
-  providers: [FutbolistasService],
+  providers: [FutbolistasService, VideosService, EventosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

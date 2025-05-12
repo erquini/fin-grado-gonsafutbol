@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { HomeComponent } from './pages/home/home.component';
 import { TiendaComponent } from './pages/tienda/tienda.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
@@ -16,11 +17,7 @@ import { VideosComponent } from './pages/videos/videos.component';
 import { FutbolistasHistoricosComponent } from './pages/futbolistas-historicos/futbolistas-historicos.component';
 import { FutbolistaDetalleComponent } from './pages/futbolista-detalle/futbolista-detalle.component';
 import { DetalleVideoComponent } from './pages/detalle-video/detalle-video.component';
-
-
-
-
-
+import { CalendarioEventosComponent } from './pages/calendario-eventos/calendario-eventos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,7 +38,7 @@ const routes: Routes = [
   { path: 'futbolistas', component: FutbolistasHistoricosComponent },
   { path: 'futbolista/:id', component: FutbolistaDetalleComponent },
   { path: 'videos/:id', component: DetalleVideoComponent },
-
+  { path: 'eventos', component: CalendarioEventosComponent }
 ];
 
 @NgModule({

@@ -62,7 +62,8 @@
               "buildTarget": "gonsa-futbol:build:production"
             },
             "development": {
-              "buildTarget": "gonsa-futbol:build:development"
+              "buildTarget": "gonsa-futbol:build:development",
+                    "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
