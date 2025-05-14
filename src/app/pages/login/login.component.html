@@ -44,29 +44,18 @@
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section class="mt-5 bg-light p-4 rounded shadow testimonios">
-    <h3 class="text-dark text-center mb-4">💬 Opiniones de nuestros usuarios</h3>
-    <div class="row text-center">
-      <div class="col-md-4">
-        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
-          <p class="testimonial-text">“Me encanta la facilidad para revisar mis pedidos pasados.”</p>
-          <footer class="testimonio-nombre">— Marcos R. de Valladolid</footer>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
-          <p class="testimonial-text">“Iniciar sesión me ahorra mucho tiempo al comprar.”</p>
-          <footer class="testimonio-nombre">— Paula T. de Málaga</footer>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="testimonial-box p-3 h-100 d-flex flex-column justify-content-between">
-          <p class="testimonial-text">“¡Ya no pierdo mis camisetas favoritas!”</p>
-          <footer class="testimonio-nombre">— Sergio H. de Alicante</footer>
-        </div>
+<!-- Opiniones de Clientes -->
+<section class="mt-5">
+  <h2 class="text-center text-info">Lo que dicen nuestros clientes</h2>
+  <div class="row mt-4">
+    <div class="col-md-4" *ngFor="let opinion of opiniones">
+      <div class="testimonial p-3 bg-white shadow rounded">
+        <p>"{{ opinion.texto }}"</p>
+        <h6 class="text-muted">- {{ opinion.autor }}</h6>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 </div>

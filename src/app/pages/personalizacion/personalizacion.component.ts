@@ -53,6 +53,7 @@ export class PersonalizacionComponent implements AfterViewInit {
       if (this.parche) {
         const parche = new Image();
         parche.src = `assets/images/${this.parche}.png`;
+        
         parche.onload = () => {
           ctx.drawImage(parche, 75, 120, 40, 40); 
         };

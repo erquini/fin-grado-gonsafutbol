@@ -145,7 +145,38 @@ export class ProductoService {
       precio: 89.99,
       descripcion: 'Camiseta de Cristiano Ronaldo en su triunfo con Portugal en la Euro 2016.',
       stock: 4
-    }
+    },
+    {
+      id: 15,
+      nombre: 'Camiseta Edición Limitada',
+      equipo: 'Especial',
+      temporada: '2023',
+      imagen: 'assets/images/recomendacion1.jpg',
+      precio: 39.99,
+      descripcion: 'Una camiseta exclusiva en tirada limitada.',
+      stock: 10
+    },
+    {
+      id: 16,
+      nombre: 'Camiseta Retro 90s',
+      equipo: 'Vintage',
+      temporada: '1990',
+      imagen: 'assets/images/recomendacion2.jpg',
+      precio: 29.99,
+      descripcion: 'Estilo clásico de los años 90, ideal para nostálgicos.',
+      stock: 15
+  },
+  {
+      id: 17,
+      nombre: 'Pack 3 Camisetas Personalizadas',
+      equipo: 'Varios',
+      temporada: 'Actual',
+      imagen: 'assets/images/recomendacion3.jpg',
+      precio: 59.99,
+      descripcion: 'Pack especial con 3 camisetas totalmente personalizadas.',
+      stock: 5
+  }
+
   ];
 
   getProductos(): Producto[] {

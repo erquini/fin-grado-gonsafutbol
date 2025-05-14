@@ -147,4 +147,19 @@ export class CalendarioEventosComponent implements OnInit {
       });
     }
   }
+  opiniones = [
+  {
+    texto: 'Es súper útil para ver cuándo juega mi equipo.',
+    autor: 'Marta R. de Valencia'
+  },
+  {
+    texto: 'Una herramienta imprescindible cada fin de semana.',
+    autor: 'Luis D. de Sevilla'
+  },
+  {
+    texto: 'Gracias a esta sección ya no me pierdo ningún partido.',
+    autor: 'Jorge F. de Bilbao'
+  }
+];
+
 }

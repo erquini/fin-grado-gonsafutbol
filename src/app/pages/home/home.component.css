@@ -89,21 +89,33 @@
   font-style: italic;
   transition: transform 0.3s;
   border-radius: 10px;
+     text-align: center;
 }
 
 .testimonial:hover {
   transform: scale(1.03);
 }
 
-/* GALERÍA */
-img.img-fluid.rounded.shadow {
-  transition: transform 0.3s ease-in-out;
+.galeria-retro .galeria-item {
   border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-img.img-fluid.rounded.shadow:hover {
-  transform: scale(1.05);
+.galeria-retro .galeria-img {
+  width: 100%;
+  height: 240px; /* MÁS ALTO */
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
+
+.galeria-retro .galeria-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
 
 /* FAQ */
 .accordion-button {

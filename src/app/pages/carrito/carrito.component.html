@@ -66,40 +66,39 @@
     </div>
   </section>
 
-  <!-- Productos recomendados -->
-  <section class="mt-5">
-    <h3 class="text-info mb-4">🌟 Recomendaciones para ti</h3>
-    <div class="row">
-      <div class="col-md-4 mb-3" *ngFor="let recomendado of productosRecomendados">
-        <div class="card shadow-sm">
-          <img [src]="recomendado.imagen" class="card-img-top" alt="Producto recomendado">
-          <div class="card-body">
-            <h5 class="card-title">{{ recomendado.nombre }}</h5>
-            <p class="text-success fw-bold">{{ recomendado.precio | currency:'EUR' }}</p>
-            <button class="btn btn-outline-primary w-100">👀 Ver producto</button>
-          </div>
+<!-- Productos recomendados -->
+<section class="mt-5">
+  <h3 class="text-info mb-4">🌟 Recomendaciones para ti</h3>
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let recomendado of productosRecomendados">
+      <div class="card shadow-sm">
+        <img [src]="recomendado.imagen" class="card-img-top" alt="Producto recomendado">
+        <div class="card-body">
+          <h5 class="card-title">{{ recomendado.nombre }}</h5>
+          <p class="text-success fw-bold">{{ recomendado.precio | currency:'EUR' }}</p>
+          <a [routerLink]="['/producto', recomendado.id]" class="btn btn-outline-primary w-100">
+            👀 Ver producto
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="mt-5 testimonios bg-light p-4 rounded shadow">
-    <h3 class="text-dark mb-4">💬 Opiniones de nuestros clientes</h3>
-    <div class="testimonios-grid">
-      <div class="testimonial-box">
-        <p class="testimonial-text">“La camiseta llegó rapidísimo y con una calidad brutal.”</p>
-        <footer class="blockquote-footer">— Mario G. de Madrid</footer>
-      </div>
-      <div class="testimonial-box">
-        <p class="testimonial-text">“Increíble atención al cliente, me ayudaron en todo el proceso.”</p>
-        <footer class="blockquote-footer">— Laura F. de Sevilla</footer>
-      </div>
-      <div class="testimonial-box">
-        <p class="testimonial-text">“Volveré a comprar sin duda. La camiseta personalizada fue un éxito.”</p>
-        <footer class="blockquote-footer">— Carlos P. de Valencia</footer>
+
+<!-- Opiniones de Clientes -->
+<section class="mt-5">
+  <h2 class="text-center text-info">Lo que dicen nuestros clientes</h2>
+  <div class="row mt-4">
+    <div class="col-md-4" *ngFor="let opinion of opiniones">
+      <div class="testimonial p-3 bg-white shadow rounded">
+        <p>"{{ opinion.texto }}"</p>
+        <h6 class="text-muted">- {{ opinion.autor }}</h6>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
   
   
   

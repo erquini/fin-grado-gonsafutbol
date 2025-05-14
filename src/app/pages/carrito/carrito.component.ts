@@ -26,23 +26,43 @@ export class CarritoComponent implements OnInit {
   carrito: Producto[] = [];
   total: number = 0;
 
-  productosRecomendados = [
-    {
-      nombre: 'Camiseta Edición Limitada',
-      precio: 39.99,
-      imagen: 'assets/images/recomendacion1.jpg'
-    },
-    {
-      nombre: 'Camiseta Retro 90s',
-      precio: 29.99,
-      imagen: 'assets/images/recomendacion2.jpg'
-    },
-    {
-      nombre: 'Pack 3 Camisetas Personalizadas',
-      precio: 59.99,
-      imagen: 'assets/images/recomendacion3.jpg'
-    }
-  ];
+productosRecomendados = [
+  {
+    id: 15,
+    nombre: 'Camiseta Edición Limitada',
+    precio: 39.99,
+    imagen: 'assets/images/recomendacion1.jpg'
+  },
+  {
+    id: 16,
+    nombre: 'Camiseta Retro 90s',
+    precio: 29.99,
+    imagen: 'assets/images/recomendacion2.jpg'
+  },
+  {
+    id: 17,
+    nombre: 'Pack 3 Camisetas Personalizadas',
+    precio: 59.99,
+    imagen: 'assets/images/recomendacion3.jpg'
+  }
+];
+
+opiniones = [
+  {
+    texto: 'La camiseta llegó súper rápido y con una calidad espectacular. Superó mis expectativas.',
+    autor: 'Mario G. de Madrid'
+  },
+  {
+    texto: 'Increíble atención al cliente. Me guiaron durante todo el proceso de compra sin problema.',
+    autor: 'Laura F. de Sevilla'
+  },
+  {
+    texto: 'Volveré a comprar sin dudarlo. La camiseta personalizada quedó perfecta y me encantó.',
+    autor: 'Carlos P. de Valencia'
+  }
+];
+
+
   
 
   testimonios: Testimonio[] = [

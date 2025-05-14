@@ -1,52 +1,37 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  private usuarios: { nombre: string, email: string, password: string }[] = [];
-  private usuarioActual: string | null = null;
+  private apiUrl = 'http://localhost/gonsa-futbol-api';
 
-  constructor() {
-    const usuariosGuardados = localStorage.getItem('usuarios');
-    if (usuariosGuardados) {
-      this.usuarios = JSON.parse(usuariosGuardados);
-    }
+  constructor(private http: HttpClient) {}
 
-    this.usuarioActual = localStorage.getItem('usuario');
+registrarUsuario(usuario: { nombre: string, email: string, password: string }) {
+  return this.http.post(`${this.apiUrl}/registro.php`, usuario);
+}
+
+
+iniciarSesion(email: string, password: string) {
+  return this.http.post(`${this.apiUrl}/login.php`, { email, password });
+}
+
+
+  obtenerUsuarioActual(): Observable<string | null> {
+    return this.http.get<{ usuario: string | null }>(`${this.apiUrl}/obtener-usuario.php`).pipe(
+      map(res => res.usuario),
+      catchError(err => {
+        console.error('Error obteniendo usuario:', err);
+        return of(null);
+      })
+    );
   }
 
-  registrarUsuario(nombre: string, email: string, password: string): boolean {
-    const existe = this.usuarios.find(u => u.email === email);
-    if (existe) {
-      return false;
-    }
-
-    this.usuarios.push({ nombre, email, password });
-
-    localStorage.setItem('usuarios', JSON.stringify(this.usuarios));
-
-    return true;
-  }
-
-  iniciarSesion(email: string, password: string): boolean {
-    const usuario = this.usuarios.find(u => u.email === email && u.password === password);
-    if (usuario) {
-      this.usuarioActual = usuario.nombre;
-
-      localStorage.setItem('usuario', usuario.nombre);
-
-      return true;
-    }
-    return false;
-  }
-
-  cerrarSesion() {
-    this.usuarioActual = null;
-    localStorage.removeItem('usuario'); 
-  }
-
-  obtenerUsuarioActual(): string | null {
-    return this.usuarioActual;
+  cerrarSesion(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/cerrar-sesion.php`);
   }
 }

@@ -72,30 +72,19 @@
 </section>
 
 
-  <!-- Opiniones de usuarios -->
-<section class="mt-5 bg-light p-4 rounded shadow testimonios">
-  <h3 class="text-dark mb-4"><i class="bi bi-chat-left-quote"></i> Lo que dicen nuestros usuarios</h3>
-  <div class="row">
-    <div class="col-md-4 d-flex">
-      <div class="testimonial-box w-100 p-3">
-        <p class="testimonial-text">“Registrarme fue rápido y sencillo. ¡Ya tengo mi camiseta personalizada!”</p>
-        <footer class="testimonio-nombre">— Sofía L. de Granada</footer>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex">
-      <div class="testimonial-box w-100 p-3">
-        <p class="testimonial-text">“Excelente atención. Gracias a mi cuenta tengo descuentos cada mes.”</p>
-        <footer class="testimonio-nombre">— Pablo M. de Zaragoza</footer>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex">
-      <div class="testimonial-box w-100 p-3">
-        <p class="testimonial-text">“Me encanta poder hacer seguimiento de mis pedidos desde mi cuenta.”</p>
-        <footer class="testimonio-nombre">— Ana R. de Valencia</footer>
+<!-- Opiniones de Clientes -->
+<section class="mt-5">
+  <h2 class="text-center text-info">Lo que dicen nuestros clientes</h2>
+  <div class="row mt-4">
+    <div class="col-md-4" *ngFor="let opinion of opiniones">
+      <div class="testimonial p-3 bg-white shadow rounded">
+        <p>"{{ opinion.texto }}"</p>
+        <h6 class="text-muted">- {{ opinion.autor }}</h6>
       </div>
     </div>
   </div>
 </section>
+
 
 
   <!-- Preguntas frecuentes -->

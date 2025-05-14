@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../services/usuario.service';
 import { Router } from '@angular/router';
 
@@ -9,36 +9,30 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  standalone: false,
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.css'],
+  standalone:false
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   /** Usuario actualmente logueado */
   usuarioLogueado: string | null = null;
 
-  /**
-   * @constructor
-   * @param usuarioService Servicio de usuario para obtener información de sesión.
-   * @param router Servicio de enrutamiento de Angular.
-   */
   constructor(private usuarioService: UsuarioService, private router: Router) {}
 
-  /** 
-   * Método de inicialización del componente.
-   * @method ngOnInit
-   * @description Obtiene el usuario actual al cargar el componente.
-   */
-  ngOnInit() {
-    this.usuarioLogueado = this.usuarioService.obtenerUsuarioActual();
-  }
+ngOnInit(): void {
+  this.usuarioService.obtenerUsuarioActual().subscribe(usuario => {
+    this.usuarioLogueado = usuario;
+  });
+}
+
 
   /**
    * @method cerrarSesion
    * @description Cierra la sesión del usuario y redirige a la página principal.
    */
   cerrarSesion() {
-    this.usuarioService.cerrarSesion();
-    this.usuarioLogueado = null;
-    this.router.navigate(['/home']);
+    this.usuarioService.cerrarSesion().subscribe(() => {
+      this.usuarioLogueado = null;
+      this.router.navigate(['/home']);
+    });
   }
 }
