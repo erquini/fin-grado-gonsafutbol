@@ -18,6 +18,8 @@ import { FutbolistasHistoricosComponent } from './pages/futbolistas-historicos/f
 import { FutbolistaDetalleComponent } from './pages/futbolista-detalle/futbolista-detalle.component';
 import { DetalleVideoComponent } from './pages/detalle-video/detalle-video.component';
 import { CalendarioEventosComponent } from './pages/calendario-eventos/calendario-eventos.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -38,8 +40,10 @@ const routes: Routes = [
   { path: 'futbolistas', component: FutbolistasHistoricosComponent },
   { path: 'futbolista/:id', component: FutbolistaDetalleComponent },
   { path: 'videos/:id', component: DetalleVideoComponent },
-  { path: 'eventos', component: CalendarioEventosComponent }
+  { path: 'eventos', component: CalendarioEventosComponent },
+  { path: 'perfil', component: PerfilComponent },
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

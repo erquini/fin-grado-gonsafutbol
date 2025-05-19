@@ -28,17 +28,9 @@ export class VideosService {
       id: 2,
       titulo: 'Messi: Gol Maradoniano al Getafe',
       descripcion: 'Messi emulando a Maradona con una jugada histórica en 2007.',
-      url: 'https://www.youtube.com/embed/Yr4Cj2ffQoc',
+      url: 'https://www.youtube.com/embed/i8TBwuN2zj4',
       imagen: 'assets/images/futbolistas/messi.jpg',
       categoria: 'Estrellas modernas'
-    },
-    {
-      id: 2,
-      titulo: 'Messi: Gol Maradoniano al Getafe',
-      descripcion: 'Messi emulando a Maradona con una jugada histórica en 2007.',
-      url: 'https://www.youtube.com/embed/Yr4Cj2ffQoc',
-      imagen: 'assets/images/futbolistas/messi.jpg',
-      categoria: 'Goles inolvidables'
     },
     {
       id: 3,
@@ -47,14 +39,6 @@ export class VideosService {
       url: 'https://www.youtube.com/embed/qF2uN6-Tu5Y',
       imagen: 'assets/images/futbolistas/cr7.jpg',
       categoria: 'Estrellas modernas'
-    },
-    {
-      id: 3,
-      titulo: 'Cristiano Ronaldo: Hat-trick ante España',
-      descripcion: 'Cristiano brillando con Portugal en el Mundial 2018.',
-      url: 'https://www.youtube.com/embed/qF2uN6-Tu5Y',
-      imagen: 'assets/images/futbolistas/cr7.jpg',
-      categoria: 'Momentos históricos'
     },
     {
       id: 4,

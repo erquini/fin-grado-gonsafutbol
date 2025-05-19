@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarritoService } from '../../services/carrito.service';
+import { UsuarioService } from '../../services/usuario.service';
 import { Producto } from '../../interfaces/producto';
 
 interface Recomendacion {
@@ -26,44 +27,41 @@ export class CarritoComponent implements OnInit {
   carrito: Producto[] = [];
   total: number = 0;
 
-productosRecomendados = [
-  {
-    id: 15,
-    nombre: 'Camiseta Edición Limitada',
-    precio: 39.99,
-    imagen: 'assets/images/recomendacion1.jpg'
-  },
-  {
-    id: 16,
-    nombre: 'Camiseta Retro 90s',
-    precio: 29.99,
-    imagen: 'assets/images/recomendacion2.jpg'
-  },
-  {
-    id: 17,
-    nombre: 'Pack 3 Camisetas Personalizadas',
-    precio: 59.99,
-    imagen: 'assets/images/recomendacion3.jpg'
-  }
-];
+  productosRecomendados = [
+    {
+      id: 15,
+      nombre: 'Camiseta Edición Limitada',
+      precio: 39.99,
+      imagen: 'assets/images/recomendacion1.jpg'
+    },
+    {
+      id: 16,
+      nombre: 'Camiseta Retro 90s',
+      precio: 29.99,
+      imagen: 'assets/images/recomendacion2.jpg'
+    },
+    {
+      id: 17,
+      nombre: 'Pack 3 Camisetas Personalizadas',
+      precio: 59.99,
+      imagen: 'assets/images/recomendacion3.jpg'
+    }
+  ];
 
-opiniones = [
-  {
-    texto: 'La camiseta llegó súper rápido y con una calidad espectacular. Superó mis expectativas.',
-    autor: 'Mario G. de Madrid'
-  },
-  {
-    texto: 'Increíble atención al cliente. Me guiaron durante todo el proceso de compra sin problema.',
-    autor: 'Laura F. de Sevilla'
-  },
-  {
-    texto: 'Volveré a comprar sin dudarlo. La camiseta personalizada quedó perfecta y me encantó.',
-    autor: 'Carlos P. de Valencia'
-  }
-];
-
-
-  
+  opiniones = [
+    {
+      texto: 'La camiseta llegó súper rápido y con una calidad espectacular. Superó mis expectativas.',
+      autor: 'Mario G. de Madrid'
+    },
+    {
+      texto: 'Increíble atención al cliente. Me guiaron durante todo el proceso de compra sin problema.',
+      autor: 'Laura F. de Sevilla'
+    },
+    {
+      texto: 'Volveré a comprar sin dudarlo. La camiseta personalizada quedó perfecta y me encantó.',
+      autor: 'Carlos P. de Valencia'
+    }
+  ];
 
   testimonios: Testimonio[] = [
     {
@@ -83,7 +81,11 @@ opiniones = [
     }
   ];
 
-  constructor(private carritoService: CarritoService, private router: Router) {}
+  constructor(
+    private carritoService: CarritoService,
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
 
   ngOnInit(): void {
     this.carrito = this.carritoService.getCarrito();
@@ -111,7 +113,15 @@ opiniones = [
       alert('⚠️ Tu carrito está vacío. Agrega productos antes de proceder al pago.');
       return;
     }
-    this.router.navigate(['/pago']);
+
+    const usuarioActual = this.usuarioService['usuarioSubject'].value;
+
+    if (usuarioActual) {
+      this.router.navigate(['/pago']);
+    } else {
+      alert('🔒 Debes iniciar sesión para continuar con el pago.');
+      this.router.navigate(['/login']);
+    }
   }
 
   seguirComprando(): void {

@@ -52,7 +52,7 @@
   </div>
   <div class="offcanvas-body">
     <ul class="list-unstyled">
-      <li><a routerLink="/perfil" class="text-white d-block py-2">👤 Mi perfil</a></li>
+      <li *ngIf="usuarioLogueado"><a routerLink="/perfil" class="text-white d-block py-2">👤 Mi perfil</a></li>
       <li><hr class="dropdown-divider bg-light"></li>
       <li><a routerLink="/videos" class="text-white d-block py-2">🎥 Sección de Videos</a></li>
       <li><a routerLink="/futbolistas" class="text-white d-block py-2">📘 Sección Informativa</a></li>
